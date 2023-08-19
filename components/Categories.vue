@@ -1,9 +1,12 @@
 <template>
   <div class="container">
-    <div class="card" v-for="item in arr">
-      <img :src="item.src">
-      <span>{{ item.title }}</span>
+    <div class="cards">
+      <div class="card" v-for="item in arr">
+        <img :src="item.src">
+        <span>{{ item.title }}</span>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -20,4 +23,26 @@ const arr = [
 ]
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.cards {
+  display: flex;
+  gap: 2rem;
+}
+
+.card {
+  width: 135px;
+  height: 104px;
+  border-radius: 12px;
+  border: 1px solid #F0F0F0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.3rem;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+</style>
