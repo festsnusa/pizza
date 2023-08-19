@@ -12,7 +12,7 @@ const arr = [
         <img :src="item.img">
         <span>{{ item.title }}</span>
         <span v-if="item.additional">{{ item.additional }}</span>
-        <button>{{ item.price }} ₽</button>
+        <Button :text="`${item.price} ₽`" class="bold" />
       </div>
 
     </div>
