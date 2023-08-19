@@ -5,9 +5,20 @@
 }
 
 @font-face {
-  font-display: swap;
-  font-family: 'SFProText';
+  font-family: 'SF Pro Text';
+  src: url('@/assets/fonts/SFProText-Regular.eot');
+  src: url('@/assets/fonts/SFProText-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('@/assets/fonts/SFProText-Regular.woff2') format('woff2'),
+    url('@/assets/fonts/SFProText-Regular.woff') format('woff'),
+    url('./fonts/SFProText-Regular.ttf') format('ttf'),
+    url('@/assets/fonts/SFProText-Regular.svg#SFProText-Regular') format('svg');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  src: url('./fonts/SFProText-Regular.ttf') format('ttf');
+  font-display: swap;
+}
+
+html,
+body {
+  font-family: 'SF Pro Text';
 }
