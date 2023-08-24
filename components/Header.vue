@@ -18,7 +18,7 @@
         <div class="timetable">
           <span>Время работы: с 11:00 до 23:00</span>
         </div>
-        <div class="account">
+        <div class="account" @click="toggleModal">
           <img src="../assets/images/account.svg" alt="account">
           <span>Войти в аккаунт</span>
         </div>
@@ -47,6 +47,8 @@
 <script setup>
 const time = ref("00:00:00")
 const total = ref(0)
+
+const { toggleModal } = useAuth();
 </script>
 
 <style lang="scss" scoped>
