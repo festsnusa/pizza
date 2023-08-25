@@ -1,7 +1,8 @@
 <template>
   <div>
+    {{ isModalVisible }}
     <Header />
-    <Auth v-show="isModalVisible" />
+    <Auth v-if="isModalVisible" />
   </div>
 </template>
 
