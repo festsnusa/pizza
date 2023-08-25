@@ -4,9 +4,9 @@
       <h1 class="title">Вход в аккаунт</h1>
       <p class="subtitle">Сможете быстро оформлять заказы, использовать бонусы</p>
       <Form @submit="onSubmit" class="form">
-        <input v-focus />
         <label for="tel" class="label">Номер телефона</label>
-        <Field name="tel" type="tel" class="field" :rules="validateEmail" vMask placeholder="+7" />
+        <Field name="tel" type="tel" class="field" :rules="validateEmail" v-maska data-maska="+7-(###)-###-##-##"
+          placeholder="+7" />
         <ErrorMessage name="tel" class="error" />
         <Button text="Войти" />
       </Form>
