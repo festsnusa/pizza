@@ -2,7 +2,6 @@
 const props = defineProps({
   text: {
     type: String,
-    required: true
   },
   class: {
     type: String,
@@ -13,12 +12,16 @@ const props = defineProps({
 
 <template>
   <button :class="props.class">
+    <slot />
     {{ props.text }}
   </button>
 </template>
 
 <style lang="scss" scoped>
 button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: #fff;
   background-color: #FF7010;
   border: none;
@@ -30,5 +33,12 @@ button {
 
 .bold {
   font-weight: bold;
+}
+
+.white {
+  background-color: #fff;
+  border: 1px solid #F0F0F0;
+  color: #000;
+  font-weight: 400;
 }
 </style>
