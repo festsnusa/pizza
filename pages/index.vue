@@ -1,8 +1,8 @@
 <template>
   <div>
-    {{ isModalVisible }}
-    <Header />
-    <Modal v-if="isModalVisible" />
+    <!-- <Header /> -->
+    <!-- <Modal v-if="isModalVisible" /> -->
+    <Footer />
   </div>
 </template>
 
