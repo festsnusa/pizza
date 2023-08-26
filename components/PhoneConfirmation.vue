@@ -3,9 +3,7 @@
     <h1 class="title">Код из СМС</h1>
     <p class="subtitle">На номер: {{ phoneNumber }}</p>
     <Form @submit="onSubmit" class="form">
-      <input maxlength="1" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" type="tel"
-        class="form-control" v-model="verifyCode[n - 1]" @focus="setSelected" @input.stop="inputEvent"
-        @keydown.stop="downEvent" @keypress.stop="pressEvent" @paste="pasteEvent(n - 1, $event)">
+      <VerificationCode />
       <ErrorMessage name="tel" class="error" />
       <Button text="Войти" />
     </Form>
@@ -27,25 +25,6 @@ const interval = setInterval(() => {
 
 const resendSMS = () => {
   timer.value = 10
-}
-
-const setSelected = (event) => {
-  event.target.select()
-}
-
-const inputEvent = (event) => {
-
-  let value = event.target.value
-  if (value.length > 1) {
-    event.target.value = value.substr(0, 1)
-  }
-  getVerifyCode().value.length === verifyCode.value.length
-    ? (this.blurOnComplete ? event.target.blur() : this.nextElement(event))
-    : event.target.value && this.nextElement(event)
-}
-
-const getVerifyCode = () => {
-  return verifyCode.value.join('')
 }
 </script>
 
