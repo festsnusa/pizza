@@ -1,29 +1,13 @@
-<template>
-  <div class="container">
-    <div class="content">
-      <h1 class="title">Вход в аккаунт</h1>
-      <p class="subtitle">Сможете быстро оформлять заказы, использовать бонусы</p>
-      <Form @submit="onSubmit" class="form">
-        <label for="tel" class="label">Номер телефона</label>
-        <Field name="tel" type="tel" class="field" :rules="validateEmail" v-maska data-maska="+7-(###)-###-##-##"
-          placeholder="+7" />
-        <ErrorMessage name="tel" class="error" />
-        <Button text="Войти" />
-      </Form>
-      <p class="consent">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским
-        соглашением</p>
-    </div>
-    <img class="close" src="_nuxt/assets/images/icon-close.png" alt="close" @click="toggleModal">
-  </div>
-</template>
-
 <script setup>
 import { Form, Field, ErrorMessage } from 'vee-validate';
 
-const { toggleModal } = useAuth();
+const { setPhoneNumber } = usePhoneNumber()
+
+const props = defineProps(["togglePhoneFilled"])
 
 const onSubmit = values => {
-  console.log(JSON.stringify(values, null, 2));
+  setPhoneNumber(values['tel'])
+  props.togglePhoneFilled()
 }
 const validateEmail = value => {
   if (!value) {
@@ -36,12 +20,23 @@ const validateEmail = value => {
 }
 </script>
 
-<style lang="scss" scoped>
-.container {
-  display: flex;
-  align-items: baseline;
-}
+<template>
+  <div class="content">
+    <h1 class="title">Вход в аккаунт</h1>
+    <p class="subtitle">Сможете быстро оформлять заказы, использовать бонусы</p>
+    <Form @submit="onSubmit" class="form">
+      <label for="tel" class="label">Номер телефона</label>
+      <Field name="tel" type="tel" class="field" :rules="validateEmail" v-maska data-maska="+7(###)-###-##-##"
+        placeholder="+7" />
+      <ErrorMessage name="tel" class="error" />
+      <Button text="Войти" />
+    </Form>
+    <p class="consent">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским
+      соглашением</p>
+  </div>
+</template>
 
+<style lang="scss" scoped>
 .content {
   display: flex;
   flex-direction: column;
@@ -53,10 +48,6 @@ const validateEmail = value => {
   p {
     text-align: center;
   }
-}
-
-.close {
-  color: red;
 }
 
 .subtitle {
@@ -75,9 +66,5 @@ const validateEmail = value => {
   flex-direction: column;
   align-items: center;
   // max-width: 320px;
-}
-
-.close {
-  cursor: pointer;
 }
 </style>

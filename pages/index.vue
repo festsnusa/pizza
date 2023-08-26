@@ -2,7 +2,7 @@
   <div>
     {{ isModalVisible }}
     <Header />
-    <Auth v-if="isModalVisible" />
+    <Modal v-if="isModalVisible" />
   </div>
 </template>
 
