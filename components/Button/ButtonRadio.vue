@@ -1,29 +1,12 @@
 <template>
-  <label class="wrapper flex items-center">
-    {{ label }}
-    <input class="checkbox" type="radio" :checked="isChecked" :value="value"
-      @change="$emit('change', $event.target.value)" />
-    <span class="checkmark"></span>
-  </label>
+  <a-radio-group v-model:value="value" name="radioGroup">
+    <a-radio value="asap">Как можно скорее</a-radio>
+    <a-radio value="on-time">По времени</a-radio>
+  </a-radio-group>
 </template>
 
-<script>
-export default {
-  model: {
-    prop: 'modelValue',
-    event: 'change'
-  },
-  props: {
-    "label": { type: String, default: "", required: true },
-    "modelValue": { default: "" },
-    "value": { type: String, default: undefined }
-  },
-  computed: {
-    isChecked() {
-      this.$emit('', this.value)
-    }
-  }
-}
+<script setup>
+const value = ref('asap');
 </script>
 
 <style scoped>

@@ -8,4 +8,5 @@ export default defineNuxtConfig({
     //...
     '@vee-validate/nuxt',
   ],
+  plugins:['@/plugins/antd']
 })
