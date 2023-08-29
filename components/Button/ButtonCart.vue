@@ -1,0 +1,11 @@
+<template>
+  <Button :text="`${currentTotal} ₽`">
+    <img src="_nuxt/assets/images/shopping-bag.svg" alt="cart">
+  </Button>
+</template>
+
+<script setup>
+const { currentTotal } = useTotal()
+</script>
+
+<style lang="scss" scoped></style>

@@ -3,8 +3,9 @@
     <div class="top">
       <div class="left">
         <div class="location">
-          <img src="../assets/images/location.svg" alt="location">
+          <img src="_nuxt/assets/images/location.svg" alt="location">
           <span>Москва</span>
+          <img src="_nuxt/assets/images/icon-arrow.svg" alt="arrow">
         </div>
         <div class="address">
           <span>Проверить адрес</span>
@@ -26,18 +27,14 @@
     </div>
     <div class="bottom">
       <div class="left">
-        <div class="logo">
+        <NuxtLink class="logo" to="/">
           <img src="../assets/images/logo.svg" alt="logo">
           <span>Куда пицца</span>
-        </div>
+        </NuxtLink>
         <slot></slot>
       </div>
       <div class="right">
-        <button>
-          <img src="../assets/images/shopping-bag.svg" alt="bag">
-          <span>{{ total }} ₽</span>
-        </button>
-
+        <ButtonCart />
       </div>
     </div>
 
@@ -52,10 +49,49 @@ const { toggleModal } = useAuth();
 </script>
 
 <style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
+
+.container {
+  padding: 1rem 5rem;
+}
+
 .delivery-time {
 
   &__time {
     font-weight: bold;
   }
+}
+
+.top,
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.1px solid #F0F0F0;
+}
+
+.top {
+  padding: 1.5rem 0;
+}
+
+.bottom {
+  padding: 1.75rem 0;
+}
+
+.left,
+.right {
+  display: flex;
+  gap: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.account {
+  cursor: pointer;
 }
 </style>

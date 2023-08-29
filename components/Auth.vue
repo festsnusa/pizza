@@ -2,12 +2,11 @@
 import { Form, Field, ErrorMessage } from 'vee-validate';
 
 const { setPhoneNumber } = usePhoneNumber()
-
-const props = defineProps(["togglePhoneFilled"])
+const phoneFilled = ref(false)
 
 const onSubmit = values => {
   setPhoneNumber(values['tel'])
-  props.togglePhoneFilled()
+  phoneFilled.value = true
 }
 const validateEmail = value => {
   if (!value) {
@@ -21,7 +20,7 @@ const validateEmail = value => {
 </script>
 
 <template>
-  <div class="content">
+  <div class="content" v-if="!phoneFilled">
     <h1 class="title">Вход в аккаунт</h1>
     <p class="subtitle">Сможете быстро оформлять заказы, использовать бонусы</p>
     <Form @submit="onSubmit" class="form">
@@ -34,6 +33,7 @@ const validateEmail = value => {
     <p class="consent">Продолжая, вы соглашаетесь со сбором и обработкой персональных данных и пользовательским
       соглашением</p>
   </div>
+  <PhoneConfirmation v-else />
 </template>
 
 <style lang="scss" scoped>

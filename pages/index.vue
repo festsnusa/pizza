@@ -1,13 +1,32 @@
 <template>
-  <div>
-    <!-- <Header /> -->
-    <!-- <Modal v-if="isModalVisible" /> -->
-    <Footer />
-  </div>
+  <Header />
+  <Auth v-if="isModalVisible" />
+  <!-- <PhoneConfirmation /> -->
 </template>
 
 <script setup>
 const { isModalVisible } = useAuth();
+
+const itemsSize = [
+  { "title": "20 см", "value": "20" },
+  { "title": "28 см", "value": "28" },
+  { "title": "33 см", "value": "33" },
+]
+
+const itemsType = [
+  { "title": "Традиционное", "value": "traditional" },
+  { "title": "Тонкое", "value": "slim" },
+]
+
+// const options = [
+//   { "title": "Как можно скорее", "value": "asap" },
+//   { "title": "По времени", "value": "on-time" }
+// ]
+
+const options = [
+  'Ресторан 1', 'Ресторан 2', 'Ресторан 3'
+]
+const selectedValue = ref("")
 </script>
 
 <style lang="scss" scoped></style>
