@@ -1,9 +1,14 @@
 <template>
-  <label for="">New</label>
+  <label for="">{{ title }}</label>
 </template>
 
 <script setup>
-
+const props = defineProps({
+  title: {
+    type: String,
+    default: () => "New"
+  }
+})
 </script>
 
 <style lang="scss" scoped>
