@@ -26,7 +26,9 @@ const arr = [
 <style lang="scss" scoped>
 .cards {
   display: flex;
+  justify-content: center;
   gap: 2rem;
+  padding: 1rem;
 }
 
 .card {
