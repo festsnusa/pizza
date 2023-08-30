@@ -1,3 +1,6 @@
+# Куда Пицца (Pizza Store)
+Figma design is located [here](https://www.figma.com/file/kzhxnkFjogmY7rQemuKscQ/Куда-Пицца-(Copy))
+
 # Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
