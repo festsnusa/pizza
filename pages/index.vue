@@ -1,6 +1,15 @@
 <template>
   <Header />
-  <Auth v-if="isModalVisible" />
+  <main>
+    <Auth v-if="isModalVisible" />
+    <Categories />
+    <Promos />
+    <AddressCheck />
+    <Menu title="Пицца" type="pizza" :isFilter="true" />
+    <DeliveryText />
+  </main>
+  <Footer />
+
   <!-- <PhoneConfirmation /> -->
 </template>
 
@@ -29,4 +38,8 @@ const options = [
 const selectedValue = ref("")
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main {
+  background-color: #F9F9F9;
+}
+</style>
