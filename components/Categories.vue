@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="actions">
     <div class="cards">
       <div class="card" v-for="item in arr">
         <img :src="item.src">
