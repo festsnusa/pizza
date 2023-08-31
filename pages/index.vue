@@ -1,11 +1,20 @@
 <template>
-  <Header />
+  <Header>
+    <Navigation />
+  </Header>
   <main>
     <Auth v-if="isModalVisible" />
+    <Filter v-if="isFilterMenuVisible" />
     <Categories />
     <Promos />
     <AddressCheck />
-    <Menu title="Пицца" type="pizza" :isFilter="true" />
+    <Menu title="Пицца" type="pizza" :isFilter="true" id="pizza" />
+    <Menu title="Суши" type="sushi" :isFilter="true" id="sushi" />
+    <Menu title="Закуски" type="snacks" id="snacks" />
+    <Menu title="Десерты" type="dessert" id="desserts" />
+    <Menu title="Напитки" type="drinks" id="drinks" />
+    <Menu title="Соусы" type="sauces" id="sauces" />
+    <Menu title="Комбо" type="combo" id="combo" />
     <DeliveryText />
   </main>
   <Footer />
@@ -15,6 +24,7 @@
 
 <script setup>
 const { isModalVisible } = useAuth();
+const { isFilterMenuVisible } = useFilter()
 
 const itemsSize = [
   { "title": "20 см", "value": "20" },
