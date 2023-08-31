@@ -98,6 +98,7 @@ li {
   display: flex;
   justify-content: space-between;
   line-height: 2.5rem;
+  border-top: 1px solid #F0F0F0;
 }
 
 .first {
