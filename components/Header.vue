@@ -1,3 +1,10 @@
+<script setup>
+const time = ref("00:00:00")
+const total = ref(0)
+
+const { toggleModal } = useAuth();
+</script>
+
 <template>
   <div class="container">
     <div class="top">
@@ -28,7 +35,7 @@
     <div class="bottom">
       <div class="left">
         <NuxtLink class="logo" to="/">
-          <img src="../assets/images/logo.svg" alt="logo">
+          <img src="_nuxt/assets/images/logo.svg" alt="logo">
           <span>Куда пицца</span>
         </NuxtLink>
         <slot></slot>
@@ -40,13 +47,6 @@
 
   </div>
 </template>
-
-<script setup>
-const time = ref("00:00:00")
-const total = ref(0)
-
-const { toggleModal } = useAuth();
-</script>
 
 <style lang="scss" scoped>
 a {
