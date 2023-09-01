@@ -1,4 +1,5 @@
 <template>
+  <Overlay v-if="isFilterMenuVisible" />
   <Header>
     <Navigation />
   </Header>
@@ -18,11 +19,12 @@
     <DeliveryText />
   </main>
   <Footer />
-
-  <!-- <PhoneConfirmation /> -->
 </template>
 
 <script setup>
+
+const isBlurred = ref(true)
+
 const { isModalVisible } = useAuth();
 const { isFilterMenuVisible } = useFilter()
 
