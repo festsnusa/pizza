@@ -2,7 +2,7 @@
 const chosen = ref([])
 const { toggleFilterMenu } = useFilter()
 
-const manual = [
+const manual = ref([
   { "title": "hit", "label": "Хит", "buttonClass": "white" },
   { "title": "new", "label": "Новинка", "buttonClass": "white" },
   { "title": "meat", "label": "С мясом", "buttonClass": "white" },
@@ -12,18 +12,18 @@ const manual = [
   { "title": "shrooms", "label": "С грибами", "buttonClass": "white" },
   { "title": "seafood", "label": "С морепродуктами", "buttonClass": "white" },
   { "title": "bbq", "label": "Барбекью", "buttonClass": "white" },
-]
+])
 
-const cheese = [
+const cheese = ref([
   { "title": "reggianito", "label": "Реджанито", "buttonClass": "white" },
   { "title": "mozzarella", "label": "Моцарелла", "buttonClass": "white" },
   { "title": "cheddar", "label": "Чеддер", "buttonClass": "white" },
   { "title": "blue-mold", "label": "С голубой плесенью", "buttonClass": "white" },
   { "title": "italian", "label": "Смесь итальянских сыров", "buttonClass": "white" },
   { "title": "soft", "label": "Мягкий молодой сыр", "buttonClass": "white" },
-]
+])
 
-const meat = [
+const meat = ref([
   { "title": "pepperoni", "label": "Пепперони", "buttonClass": "white" },
   { "title": "pork", "label": "Свинина", "buttonClass": "white" },
   { "title": "ham", "label": "Ветчина", "buttonClass": "white" },
@@ -32,9 +32,9 @@ const meat = [
   { "title": "chorizo", "label": "Чоризо", "buttonClass": "white" },
   { "title": "sausages", "label": "Колбаски", "buttonClass": "white" },
   { "title": "chicken-breast", "label": "Куриная грудка", "buttonClass": "white" },
-]
+])
 
-const component = [
+const component = ref([
   { "title": "shrimp", "label": "Креветка", "buttonClass": "white" },
   { "title": "pineapple", "label": "Ананасы", "buttonClass": "white" },
   { "title": "champignon", "label": "Шампиньоны", "buttonClass": "white" },
@@ -49,7 +49,29 @@ const component = [
   { "title": "black-olives", "label": "Маслины", "buttonClass": "white" },
   { "title": "strawberries", "label": "Клубника", "buttonClass": "white" },
   { "title": "italian-blend", "label": "Смесь итальянских трав", "buttonClass": "white" },
-]
+])
+
+const toggleChosen = (button, type) => {
+  console.log(button, type)
+
+  let arr
+
+  if (type === 'manual') {
+    arr = manual
+  } else if (type === 'cheese') {
+    arr = cheese
+  } else if (type === 'meat') {
+    arr = meat
+  } else if (type === 'component') {
+    arr = component
+  } else { return }
+
+  const foundObject = arr.value.find(e => e.title === button.title)
+  // user chose
+  if (button.buttonClass === 'white') {
+    foundObject.buttonClass = 'regular'
+  }
+}
 </script>
 
 <template>
@@ -58,10 +80,11 @@ const component = [
       <h1>Фильтры</h1>
       <img class="header__close" src="_nuxt/assets/images/icon-close.png" alt="close" @click="toggleFilterMenu(false)">
     </div>
-    <FilterContent title="Общее" :buttons="manual" />
-    <FilterContent title="Сыр" :buttons="cheese" />
-    <FilterContent title="Мясо" :buttons="cheese" />
-    <FilterContent title="Компонент" :buttons="component" />
+    <FilterContent title="Общее" :buttons="manual" type="manual" @toggleChosen="toggleChosen" />
+    <FilterContent title="Сыр" :buttons="cheese" type="cheese" @toggleChosen="toggleChosen" :key="cheese" />
+    <FilterContent title="Мясо" :buttons="meat" type="meat" @toggleChosen="toggleChosen" :key="meat" />
+    <FilterContent title="Компонент" :buttons="component" type="component" @toggleChosen="toggleChosen"
+      :key="component" />
     <div class="footer">
       <Button text="Сбросить" @click="reset" />
       <Button text="Применить" @click="apply" />
