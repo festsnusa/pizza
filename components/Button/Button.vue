@@ -41,4 +41,10 @@ button {
   color: #000;
   font-weight: 400;
 }
+
+.white-orange {
+  border: 1px solid #F0F0F0;
+  background-color: #fff;
+  color: #FF7010;
+}
 </style>

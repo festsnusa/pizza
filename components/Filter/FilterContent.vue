@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <span>{{ title }}</span>
+    <p class="content__title">{{ title }}</p>
     <ul>
       <li v-for="(button, i) in buttons" :key="`buttons__${i}`">
         <Button :text="button.label" :class="button.buttonClass" @click="toggleButton(button)" />
@@ -37,5 +37,15 @@ const toggleButton = (button) => {
 <style lang="scss" scoped>
 ul {
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.content {
+  &__title {
+    color: #AAAAAA;
+    padding: 1rem 0;
+  }
 }
 </style>

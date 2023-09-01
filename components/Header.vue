@@ -68,6 +68,7 @@ a {
 .bottom {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   border-bottom: 0.1px solid #F0F0F0;
 }
 
