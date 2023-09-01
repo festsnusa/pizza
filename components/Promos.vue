@@ -14,6 +14,7 @@ const images = ["promo-1.png", "promo-2.png", "promo-1.png", "promo-2.png"]
 ul {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 2rem;
   list-style: none;
   padding: 1rem;
