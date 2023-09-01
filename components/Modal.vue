@@ -18,8 +18,14 @@ const togglePhoneFilled = () => {
 
 <style lang="scss" scoped>
 .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
+  gap: 1rem;
+  z-index: 15;
 }
 
 .close {
