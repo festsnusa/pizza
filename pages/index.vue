@@ -1,10 +1,10 @@
 <template>
-  <Overlay v-if="isFilterMenuVisible" />
+  <Overlay v-if="isFilterMenuVisible || isModalVisible" />
   <Header>
     <Navigation />
   </Header>
   <main>
-    <Auth v-if="isModalVisible" />
+    <Modal v-if="isModalVisible" />
     <Filter v-if="isFilterMenuVisible" />
     <Categories />
     <Promos />
