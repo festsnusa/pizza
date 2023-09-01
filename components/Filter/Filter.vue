@@ -79,7 +79,7 @@ const component = [
   top: 0;
   right: 0;
   background-color: #fff;
-  z-index: 5;
+  z-index: 15;
 }
 
 .header {
