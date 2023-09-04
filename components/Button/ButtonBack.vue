@@ -1,6 +1,6 @@
 <template>
   <Button>
-    <img src="_nuxt/assets/images/icon-arrow.svg" alt="arrow">
+    <img src="@/assets/images/icon-arrow.svg" alt="arrow">
   </Button>
 </template>
 

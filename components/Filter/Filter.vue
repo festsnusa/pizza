@@ -98,7 +98,7 @@ const apply = () => {
   <div class="container">
     <div class="header">
       <h1>Фильтры</h1>
-      <img class="header__close" src="_nuxt/assets/images/icon-close.png" alt="close" @click="toggleFilterMenu(false)">
+      <img class="header__close" src="@/assets/images/icon-close.png" alt="close" @click="toggleFilterMenu(false)">
     </div>
     <section class="content">
       <FilterContent title="Общее" :buttons="manual" type="manual" @toggleChosen="toggleChosen" />

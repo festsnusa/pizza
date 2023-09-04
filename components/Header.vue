@@ -10,9 +10,9 @@ const { toggleModal } = useAuth();
     <div class="top">
       <div class="left">
         <div class="location">
-          <img src="_nuxt/assets/images/location.svg" alt="location">
+          <img src="@/assets/images/location.svg" alt="location">
           <span>Москва</span>
-          <img src="_nuxt/assets/images/icon-arrow.svg" alt="arrow">
+          <img src="@/assets/images/icon-arrow.svg" alt="arrow">
         </div>
         <div class="address">
           <span>Проверить адрес</span>
@@ -27,7 +27,7 @@ const { toggleModal } = useAuth();
           <span>Время работы: с 11:00 до 23:00</span>
         </div>
         <div class="account" @click="toggleModal">
-          <img src="../assets/images/account.svg" alt="account">
+          <img src="@/assets/images/account.svg" alt="account">
           <span>Войти в аккаунт</span>
         </div>
       </div>
@@ -35,7 +35,7 @@ const { toggleModal } = useAuth();
     <div class="bottom">
       <div class="left">
         <NuxtLink class="logo" to="/">
-          <img src="_nuxt/assets/images/logo.svg" alt="logo">
+          <img src="@/assets/images/logo.svg" alt="logo">
           <span>Куда пицца</span>
         </NuxtLink>
         <slot></slot>

@@ -1,7 +1,7 @@
 <script setup>
 const arr = [
-  { "title": "Картофель из печи", "price": "179", "img": "_nuxt/assets/images/potato.svg", "additional": "Порция 95 г" },
-  { "title": "Сырный соус", "price": "179", "img": "_nuxt/assets/images/potato.svg" }
+  { "title": "Картофель из печи", "price": "179", "img": "@/assets/images/potato.svg", "additional": "Порция 95 г" },
+  { "title": "Сырный соус", "price": "179", "img": "@/assets/images/potato.svg" }
 ]
 </script>
 

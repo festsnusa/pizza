@@ -2,7 +2,7 @@
   <div class="container">
     <Auth v-if="!isPhoneFilled" :togglePhoneFilled="togglePhoneFilled" />
     <PhoneConfirmation v-else />
-    <img class="close" src="_nuxt/assets/images/icon-close.png" alt="close" @click="toggleModal">
+    <img class="close" src="@/assets/images/icon-close.png" alt="close" @click="toggleModal">
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <Button :text="`${currentTotal} ₽`">
-    <img src="_nuxt/assets/images/shopping-bag.svg" alt="cart">
+    <img src="@/assets/images/shopping-bag.svg" alt="cart">
   </Button>
 </template>
 

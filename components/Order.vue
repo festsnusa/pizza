@@ -28,7 +28,7 @@
 
 
     <div class="pizzas">
-      <img :src="`_nuxt/assets/images/order/pizza-${i}.png`" :alt="`pizza-${i}`" v-for="i in 3">
+      <img :src="`@/assets/images/order/pizza-${i}.png`" :alt="`pizza-${i}`" v-for="i in 3">
     </div>
     <button>
       Повторить заказ
