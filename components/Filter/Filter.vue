@@ -1,6 +1,7 @@
 <script setup>
 const chosen = ref([])
-const { toggleFilterMenu } = useFilter()
+const { toggleFilterMenu, currentType } = useFilter()
+const { setCurrentData } = useData()
 
 const manual = ref([
   { "id": 1, "title": "hit", "label": "Хит", "buttonClass": "white" },
@@ -90,6 +91,9 @@ const reset = () => {
 }
 
 const apply = () => {
+
+  setCurrentData(currentType, chosen)
+  // currentType.value
   toggleFilterMenu(false)
 }
 </script>
