@@ -3,7 +3,7 @@
     <div class="first">
       <div class="top">
         <NuxtLink to="/" class="logo">
-          <img src="../assets/images/logo.svg" alt="logo">
+          <img src="@/assets/images/logo.svg" alt="logo">
           <span>Куда пицца</span>
         </NuxtLink>
       </div>
@@ -33,7 +33,7 @@
       <ul>
         <NuxtLink v-for="(contact, i) in contacts" :key="`contact__${i}`" :to="contact.link" target="_blank">
           <li>
-            <img :src="`@/assets/images/${contact.title}.svg`" :alt="contact.title">
+            <img :src="`_nuxt/assets/images/${contact.title}.svg`" :alt="contact.title">
             <span>{{ contact.span }}</span>
           </li>
         </NuxtLink>
