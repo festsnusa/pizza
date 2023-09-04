@@ -1,14 +1,17 @@
 const useFilter = () => {
   const isFilterMenuVisible = useState('filterMenuVisible', () => false);
+  const currentType = useState('currentType', () => '');
 
-  const toggleFilterMenu = (newVal) => {
+  const toggleFilterMenu = (newVal, type = '') => {
     isFilterMenuVisible.value = newVal;
-    console.log(isFilterMenuVisible.value);
+    currentType.value = type;
+    console.log(isFilterMenuVisible.value, currentType.value);
   };
 
   return {
     isFilterMenuVisible,
     toggleFilterMenu,
+    currentType,
   };
 };
 

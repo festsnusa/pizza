@@ -2,14 +2,14 @@
   <div class="container" :id="id">
     <div class="header">
       <h1>{{ title }}</h1>
-      <ButtonFilter v-if="isFilter" />
+      <ButtonFilter v-if="isFilter" :type="type" />
     </div>
 
     <ul class="cards">
       <li class="card" v-for="(item, i) in data" :key="`item__${i}`">
         <NewLabel class="label" v-if="item.status === 'new'" />
         <NewLabel class="label" v-if="item.status === 'hit'" title="Хит" />
-        <img :src="`@/assets/images/${type}/${item.img}`" :alt="item.title">
+        <img :src="`_nuxt/assets/images/${type}/${item.img}`" :alt="item.title">
         <div class="card__content">
           <p class="card__title">{{ item.title }}</p>
           <p class="card__subtitle">{{ item.composition }}</p>
