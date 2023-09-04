@@ -9,7 +9,9 @@
       <li class="card" v-for="(item, i) in data" :key="`item__${i}`">
         <NewLabel class="label" v-if="item.status === 'new'" />
         <NewLabel class="label" v-if="item.status === 'hit'" title="Хит" />
-        <img :src="`_nuxt/assets/images/${type}/${item.img}`" :alt="item.title">
+        <NuxtLink :to="`/item/${item.id}`">
+          <img class="card__image" :src="`_nuxt/assets/images/${type}/${item.img}`" :alt="item.title">
+        </NuxtLink>
         <div class="card__content">
           <p class="card__title">{{ item.title }}</p>
           <p class="card__subtitle">{{ item.composition }}</p>
@@ -27,6 +29,7 @@
 
 <script setup>
 import json from '../assets/data.json'
+
 const props = defineProps({
   title: {
     type: String,
@@ -46,7 +49,19 @@ const props = defineProps({
   }
 })
 
-const data = json.filter(e => e.type == props.type)
+const data = computed(() => {
+  if (props.type == 'pizza') {
+    const { pizzaData } = useData()
+    return pizzaData.value
+  } else if (props.type == 'sushi') {
+    const { sushiData } = useData()
+    return sushiData.value
+  } else {
+    return json.filter(e => e.type == props.type)
+  }
+})
+
+// const data = json.filter(e => e.type == props.type)
 </script>
 
 <style lang="scss" scoped>
@@ -84,6 +99,10 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &__image {
+    cursor: pointer;
+  }
 
   &__content {
     padding: 1.5rem;
