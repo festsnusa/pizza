@@ -1,8 +1,8 @@
 const useItem = () => {
   const isItemVisible = useState('isItemVisible', () => false);
 
-  const toggleItem = () => {
-    isItemVisible.value = !isItemVisible.value;
+  const toggleItem = (newVal) => {
+    isItemVisible.value = newVal;
   };
 
   return {

@@ -29,7 +29,9 @@
             <span>400 г</span>
           </div>
           <div class="footer__right">
-            <Button text="Добавить" />
+            <NuxtLink to="/">
+              <Button text="Добавить" @click="confirm" />
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -52,6 +54,9 @@ const props = defineProps({
   },
 })
 
+const { addToCart } = useCart()
+const { toggleItem } = useItem()
+
 const item = json.filter(e => e.id == props.id)[0]
 const total = ref(item.price)
 
@@ -67,15 +72,21 @@ const changeTotal = (itemsLength) => {
   total.value = item.price + (59 * itemsLength)
 }
 
-const { toggleItem } = useItem()
+const confirm = () => {
+  addToCart(item, total.value)
+  toggleModal()
+}
 
 const toggleModal = () => {
-  toggleItem()
-
+  toggleItem(false)
 }
 </script>
 
 <style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
+
 .container {
   display: flex;
   align-items: flex-start;
@@ -83,7 +94,6 @@ const toggleModal = () => {
   gap: 5rem;
   position: fixed;
   z-index: 20;
-  // top: 10px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

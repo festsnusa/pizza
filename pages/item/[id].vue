@@ -7,7 +7,14 @@
 const route = useRoute()
 
 const { toggleItem } = useItem()
-toggleItem()
+
+onMounted(() => {
+  toggleItem(true)
+})
+
+onBeforeUnmount(() => {
+  toggleItem(false)
+});
 </script>
 
 <style lang="scss" scoped></style>
