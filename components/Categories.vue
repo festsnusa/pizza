@@ -1,10 +1,10 @@
 <template>
   <div class="container" id="actions">
     <div class="cards">
-      <div class="card" v-for="item in arr">
+      <a class="card" v-for="item in arr" :href="`#${item.id}`">
         <img :src="item.src">
         <span>{{ item.title }}</span>
-      </div>
+      </a>
     </div>
 
   </div>
@@ -12,18 +12,23 @@
 
 <script setup>
 const arr = [
-  { "title": "Акции", "src": "_nuxt/assets/images/categories/fire.svg" },
-  { "title": "Пицца", "src": "_nuxt/assets/images/categories/pizza.svg" },
-  { "title": "Суши", "src": "_nuxt/assets/images/categories/sushi.svg" },
-  { "title": "Напитки", "src": "_nuxt/assets/images/categories/drink.svg" },
-  { "title": "Закуски", "src": "_nuxt/assets/images/categories/snacks.svg" },
-  { "title": "Комбо", "src": "_nuxt/assets/images/categories/combo.svg" },
-  { "title": "Десерты", "src": "_nuxt/assets/images/categories/desserts.svg" },
-  { "title": "Соусы", "src": "_nuxt/assets/images/categories/sauces.svg" },
+  { "title": "Акции", "src": "_nuxt/assets/images/categories/fire.svg", "id": "actions" },
+  { "title": "Пицца", "src": "_nuxt/assets/images/categories/pizza.svg", "id": "pizza" },
+  { "title": "Суши", "src": "_nuxt/assets/images/categories/sushi.svg", "id": "sushi" },
+  { "title": "Напитки", "src": "_nuxt/assets/images/categories/drink.svg", "id": "drinks" },
+  { "title": "Закуски", "src": "_nuxt/assets/images/categories/snacks.svg", "id": "snacks" },
+  { "title": "Комбо", "src": "_nuxt/assets/images/categories/combo.svg", "id": "combo" },
+  { "title": "Десерты", "src": "_nuxt/assets/images/categories/desserts.svg", "id": "desserts" },
+  { "title": "Соусы", "src": "_nuxt/assets/images/categories/sauces.svg", "id": "sauces" },
 ]
 </script>
 
 <style lang="scss" scoped>
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 .cards {
   display: flex;
   justify-content: center;
