@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="left">
-      <NewLabel v-if="item.status" :title="item.status" />
+      <NewLabel class="left__label" v-if="item.status" :title="item.status" />
       <img :src="imgSrc" alt="item">
     </div>
     <div class="right">
@@ -10,9 +10,26 @@
         <img src="@/assets/images/info.png" alt="info">
       </div>
       <Ingredients />
+      <div class="right__type">
+        <ButtonSwitch :items="[{ title: 'Традиционное' }, { title: 'Тонкое' }]" />
+      </div>
+      <div class="right__sizes">
+        <ButtonSwitch :items="[
+          { title: '20 см' }, { title: '28 см' }, { title: '33 см' }
+        ]" />
+      </div>
+      <div class="right__additional">
+        <p class="right__title">Добавьте в пиццу</p>
+        <IngredientsAdditional @changeTotal="changeTotal" />
+      </div>
       <div class="footer">
-        <Button text="Выбрать" />
-        <span class="footer__price">от {{ item.price }} ₽</span>
+        <div class="footer__left">
+          <p>Итого: {{ total }} ₽</p>
+          <span>400 г</span>
+        </div>
+        <div class="footer__right">
+          <Button text="Добавить" />
+        </div>
       </div>
     </div>
 
@@ -30,19 +47,40 @@ const props = defineProps({
 })
 
 const item = json.filter(e => e.id == props.id)[0]
+const total = ref(item.price)
 
 const imgSrc = computed(() => {
-  // console.log(item)
   return `/_nuxt/assets/images/${item.type}/${item.img}`
 })
 
-console.log(props.id)
+const changeTotal = (itemsLength) => {
+  if (itemsLength === 0) {
+    total.value = item.price
+    return
+  }
+  total.value = item.price + (59 * itemsLength)
+}
 </script>
 
 <style lang="scss" scoped>
 .container {
-  position: absolute;
   display: flex;
+  padding: 2rem;
+  gap: 5rem;
+}
+
+.left {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__label {
+    position: absolute;
+    left: -2rem;
+    top: 0;
+  }
+
 }
 
 .right {
@@ -68,11 +106,33 @@ console.log(props.id)
 
 
 .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   &__price {
     color: #FF7010;
     font-weight: 600;
     font-size: 18px;
     line-height: 24px;
+  }
+
+  &__left {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    p {
+      color: #FF7010;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+      margin-bottom: 0;
+    }
+
+    span {
+      color: #A5A5A5;
+    }
   }
 }
 </style>
