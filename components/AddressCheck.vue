@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="address">
     <Form @submit="onSubmit" class="address">
       <label for="address">Проверить адрес доставки</label>
       <Field name="address" class="address__input" type="text" placeholder="Адрес" :rules="validateAddress" />

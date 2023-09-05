@@ -15,7 +15,7 @@ const { toggleModal } = useAuth();
           <img src="@/assets/images/icon-arrow.svg" alt="arrow">
         </div>
         <div class="address">
-          <span>Проверить адрес</span>
+          <a href="#address">Проверить адрес</a>
         </div>
         <div class="delivery-time">
           <span>Средняя время доставки*:</span>
@@ -51,6 +51,7 @@ const { toggleModal } = useAuth();
 <style lang="scss" scoped>
 a {
   text-decoration: none;
+  color: #000;
 }
 
 .container {
