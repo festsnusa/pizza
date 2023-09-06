@@ -3,6 +3,7 @@
   <Header>
     <Navigation />
   </Header>
+  <Popup text="Товар добавлен в корзину" v-show="isPopupVisible" />
   <main>
     <Modal v-if="isModalVisible" />
     <Filter v-if="isFilterMenuVisible" />
@@ -25,6 +26,7 @@
 const { isModalVisible } = useAuth();
 const { isFilterMenuVisible } = useFilter()
 const { isItemVisible } = useItem()
+const { isPopupVisible } = usePopup()
 </script>
 
 <style lang="scss" scoped>

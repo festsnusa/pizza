@@ -56,6 +56,7 @@ a {
 
 .container {
   padding: 1rem 5rem;
+  position: relative;
 }
 
 .delivery-time {
