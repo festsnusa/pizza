@@ -1,5 +1,5 @@
 <template>
-  <Overlay v-if="isFilterMenuVisible || isModalVisible || isItemVisible" />
+  <Overlay v-if="isFilterMenuVisible || isModalVisible || isItemVisible || isCartSidebarVisible" />
   <Header>
     <Navigation />
   </Header>
@@ -7,6 +7,7 @@
   <main>
     <Modal v-if="isModalVisible" />
     <Filter v-if="isFilterMenuVisible" />
+    <CartSidebar v-show="isCartSidebarVisible" :key="currentCart" />
     <Categories />
     <Promos />
     <AddressCheck />
@@ -27,6 +28,7 @@ const { isModalVisible } = useAuth();
 const { isFilterMenuVisible } = useFilter()
 const { isItemVisible } = useItem()
 const { isPopupVisible } = usePopup()
+const { isCartSidebarVisible, currentCart } = useCart()
 </script>
 
 <style lang="scss" scoped>
