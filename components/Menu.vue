@@ -16,7 +16,7 @@
           <p class="card__title">{{ item.title }}</p>
           <p class="card__subtitle">{{ item.composition }}</p>
           <div class="card__footer">
-            <Button text="Выбрать" />
+            <Button text="Выбрать" @click="addToCart(item, item.price)" />
             <span class="card__price">от {{ item.price }} ₽</span>
           </div>
         </div>
@@ -60,6 +60,8 @@ const data = computed(() => {
     return json.filter(e => e.type == props.type)
   }
 })
+
+const { addToCart } = useCart()
 
 // const data = json.filter(e => e.type == props.type)
 </script>

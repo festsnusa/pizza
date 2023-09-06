@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-const { currentTotal } = useTotal()
+const { currentTotal } = useCart()
 </script>
 
 <style lang="scss" scoped></style>
