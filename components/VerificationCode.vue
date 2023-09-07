@@ -79,7 +79,7 @@ function onPaste(event: Event) {
   </div>
 </template>
 
-<style>
+<style scoped>
 .parent {
   text-align: center;
   position: relative;

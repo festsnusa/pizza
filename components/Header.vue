@@ -55,7 +55,7 @@ a {
 }
 
 .container {
-  padding: 1rem 5rem;
+  padding: 1rem 5rem 0;
   position: relative;
 }
 

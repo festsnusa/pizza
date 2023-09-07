@@ -33,7 +33,7 @@
       <ul>
         <NuxtLink v-for="(contact, i) in contacts" :key="`contact__${i}`" :to="contact.link" target="_blank">
           <li>
-            <img :src="`_nuxt/assets/images/${contact.title}.svg`" :alt="contact.title">
+            <img :src="`/_nuxt/assets/images/${contact.title}.svg`" :alt="contact.title">
             <span>{{ contact.span }}</span>
           </li>
         </NuxtLink>

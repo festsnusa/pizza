@@ -1,16 +1,18 @@
 <template>
-  <a-radio-group v-model:value="radioButton" name="radioGroup" @change="setValue">
-    <a-radio value="asap">Как можно скорее</a-radio>
-    <a-radio value="on-time">По времени</a-radio>
-  </a-radio-group>
+  <div class="radio">
+    <a-radio-group v-model:value="radioButton" name="radioGroup" @change="setValue">
+      <a-radio value="asap">Как можно скорее</a-radio>
+      <a-radio value="on-time">По времени</a-radio>
+    </a-radio-group>
+  </div>
 </template>
 
 <script setup>
-const { radioButton, setRadioButtonValue } = useRadioButton()
+// const { radioButton, setRadioButtonValue } = useRadioButton()
 
-const setValue = (e) => {
-  setRadioButtonValue(e.target.value)
-}
+// const setValue = (e) => {
+//   setRadioButtonValue(e.target.value)
+// }
 </script>
 
 <style scoped>

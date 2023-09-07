@@ -1,8 +1,11 @@
 <template>
-  <div class="container">
+  <main>
     <CartItems />
     <Promocode :total="currentTotal" />
-  </div>
+    <SliderSnacks />
+    <SliderSauces />
+    <Contact />
+  </main>
 </template>
 
 <script setup>
@@ -10,7 +13,8 @@ const { currentTotal } = useCart()
 </script>
 
 <style lang="scss" scoped>
-.container {
+main {
   padding: 0 5rem;
+  background-color: #F9F9F9;
 }
 </style>
