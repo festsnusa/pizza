@@ -1,45 +1,26 @@
 <script setup>
-const title = ref("Пепперони по-деревенски")
-const subtitle = ref("Традиционное тесто, 23 см")
-const count = ref(0)
-const price = ref(399)
-const total = computed(() => {
-  return count.value * price.value
-})
-
-const completedItems = computed(() => {
-  return todoList.value.filter(item => item.completed)
-})
-
-const lowerCount = () => {
-  count.value--
-  count.value = (count.value < 0) ? 0 : count.value
-}
+const { currentCart } = useCart()
 </script>
 
 <template>
-  <div class="container">
+  <div class="cart" v-for="(cart, i) in currentCart" :key="`cart__${i}`">
     <div class="left">
-      <img src="@/assets/images/item.svg" alt="item">
+      <img :src="`/_nuxt/assets/images/${cart.item.type}/${cart.item.img}`" alt="item">
       <div class="description">
-        <span class="title">{{ title }}</span>
-        <span class="subtitle">{{ subtitle }}</span>
+        <span class="title">{{ cart.item.title }}</span>
+        <span class="subtitle">Традиционное тесто, 23 см</span>
       </div>
     </div>
 
     <div class="right">
-      <div class="counter">
-        <span class="counter__button" @click="lowerCount('-')">-</span>
-        <span>{{ count }}</span>
-        <span class="counter__button" @click="count++">+</span>
-      </div>
-      <span class="total">{{ total }} ₽</span>
+      <Counter :amount="1" :index="i" />
+      <span class="total">{{ cart.total }} ₽</span>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.container {
+.cart {
   border-radius: 6px;
   display: flex;
   justify-content: space-between;
@@ -60,17 +41,6 @@ const lowerCount = () => {
   }
 }
 
-.counter {
-  background-color: #FFEEE2;
-  border-radius: 6px;
-  display: flex;
-  justify-content: space-between;
-  gap: 1.2rem;
-  padding: 1rem;
-
-
-}
-
 .description {
   display: flex;
   flex-direction: column;
@@ -85,12 +55,5 @@ const lowerCount = () => {
 .subtitle {
   font-weight: 400;
   font-size: 1rem;
-}
-
-.counter {
-
-  &__button {
-    cursor: pointer;
-  }
 }
 </style>
