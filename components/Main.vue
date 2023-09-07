@@ -1,8 +1,5 @@
 <template>
   <Overlay v-if="isFilterMenuVisible || isModalVisible || isItemVisible || isCartSidebarVisible" />
-  <Header>
-    <Navigation />
-  </Header>
   <Popup text="Товар добавлен в корзину" v-show="isPopupVisible" />
   <main>
     <Modal v-if="isModalVisible" />
@@ -20,7 +17,6 @@
     <Menu title="Комбо" type="combo" id="combo" />
     <DeliveryText />
   </main>
-  <Footer />
 </template>
 
 <script setup>
