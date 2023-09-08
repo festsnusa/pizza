@@ -3,6 +3,7 @@ import { useStorage } from '@vueuse/core';
 const useCart = () => {
   const currentCart = useStorage('currentCart', []);
   const currentTotal = useStorage('currentTotal', 0);
+  const currentOrder = useStorage('currentOrder', null);
   const isCartSidebarVisible = useState('isCartSidebarVisible', () => false);
   const { togglePopup } = usePopup();
 
