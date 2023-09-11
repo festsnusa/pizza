@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const time = ref("00:00:00")
 const total = ref(0)
 

@@ -5,7 +5,7 @@
   </Button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { toggleFilterMenu } = useFilter()
 
 const props = defineProps({

@@ -36,7 +36,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const order = ref('130312')
 const total = ref(0)
 const date = ref(new Date().toLocaleDateString())

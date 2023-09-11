@@ -4,7 +4,7 @@
   </Button>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { currentTotal, toggleCartSidebar } = useCart()
 </script>
 

@@ -2,7 +2,7 @@
   <a-checkbox-group v-model:value="checkedList" :options="options" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 const checkedList = ref(['Apple', 'Orange'])
 const props = defineProps({

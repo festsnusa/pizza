@@ -3,7 +3,7 @@
   <ItemCard :id="route.params.id" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute()
 
 const { toggleItem } = useItem()

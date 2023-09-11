@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const chosen = ref([])
 const { toggleFilterMenu, currentType } = useFilter()
 const { setCurrentData } = useData()

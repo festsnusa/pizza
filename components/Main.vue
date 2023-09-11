@@ -19,7 +19,7 @@
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { isModalVisible } = useAuth();
 const { isFilterMenuVisible } = useFilter()
 const { isItemVisible } = useItem()

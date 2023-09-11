@@ -42,7 +42,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const links = [
   {
     "title": "О компании", "link": "about"

@@ -7,7 +7,7 @@
   <ErrorMessage :name="name" class="error" />
 </template>
 
-<script setup>
+<script setup lang="ts">
 const props = defineProps({
   name: {
     type: String,

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { Form, Field, ErrorMessage } from 'vee-validate';
 
 const { setPhoneNumber } = usePhoneNumber()

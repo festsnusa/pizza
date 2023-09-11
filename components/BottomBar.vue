@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const isGrams = ref(true)
 const total = ref(0)
 const grams = ref(0)

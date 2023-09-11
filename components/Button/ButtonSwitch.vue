@@ -4,13 +4,10 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  items: {
-    required: true,
-    type: Array,
-  }
-})
+<script setup lang="ts">
+const props = defineProps<{
+  items: Array<{ title: string }>
+}>();
 </script>
 
 <style lang="scss" scoped>

@@ -16,7 +16,7 @@
   </a-dropdown>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { DownOutlined } from '@ant-design/icons-vue'
 
 const options = [

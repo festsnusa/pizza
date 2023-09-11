@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const arr = [
   { "title": "Акции", "src": "_nuxt/assets/images/categories/fire.svg", "id": "actions" },
   { "title": "Пицца", "src": "_nuxt/assets/images/categories/pizza.svg", "id": "pizza" },

@@ -33,7 +33,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { currentCart, currentTotal, toggleCartSidebar, deleteItem } = useCart()
 
 const amounts = ref(Array(currentCart.value.length).fill(1))

@@ -9,7 +9,7 @@
   </ul>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const items = [
   { "title": "Акции", "id": "actions" },
   { "title": "Пицца", "id": "pizza" },

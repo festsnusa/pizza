@@ -9,7 +9,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const items = [
   { "title": "Моцарелла", "img": "mozarella.png", "available": true },
   { "title": "Огурцы маринованные", "img": "pickles.png", "available": false },

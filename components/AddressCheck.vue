@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const validateAddress = value => {
   if (!value) {
     return "Заполните адрес"

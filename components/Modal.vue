@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const isPhoneFilled = ref(false)
 
 const { toggleModal } = useAuth();

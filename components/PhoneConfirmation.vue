@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const timer = ref(0)
 const { phoneNumber } = usePhoneNumber()
 const verifyCode = new Array(4)

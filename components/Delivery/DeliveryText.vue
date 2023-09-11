@@ -24,10 +24,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const fullText = ref(false)
 
-const getText = computed(() => {
+const getText = computed((): string => {
   return fullText.value ? "Скрыть текст" : "Показать полностью"
 })
 

@@ -14,7 +14,7 @@
   </ul>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const items = ref([
   { "title": "Моцарелла", "img": "mozarella.png", "chosen": false },
   { "title": "Шампиньоны", "img": "champignon.png", "chosen": false },
