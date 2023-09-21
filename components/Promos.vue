@@ -1,13 +1,20 @@
 <template>
   <ul>
-    <li v-for="(image, i) in images" :key="`images_${i}`">
-      <img :src="`_nuxt/assets/images/promos/${image}`" alt="image">
+    <li v-for="(image, i) in imagesArr" :key="`images_${i}`">
+      <img :src="images[image]" alt="image">
     </li>
   </ul>
 </template>
 
 <script setup>
-const images = ["promo-1.png", "promo-2.png", "promo-1.png", "promo-2.png"]
+import { filename } from 'pathe/utils'
+
+const glob = import.meta.glob('~/assets/images/promos/*.png', { eager: true })
+const images = Object.fromEntries(
+  Object.entries(glob).map(([key, value]) => [filename(key), value.default])
+)
+
+const imagesArr = ["promo-1", "promo-2", "promo-1", "promo-2"]
 </script>
 
 <style lang="scss" scoped>

@@ -11,6 +11,7 @@
         <NewLabel class="label" v-if="item.status === 'hit'" title="Хит" />
         <NuxtLink :to="`/item/${item.id}`">
           <img class="card__image" :src="`_nuxt/assets/images/${type}/${item.img}`" :alt="item.title">
+          <!-- <img class="card__image" :src="imgSrc(item.img)" :alt="item.title"> -->
         </NuxtLink>
         <div class="card__content">
           <p class="card__title">{{ item.title }}</p>
@@ -27,8 +28,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import json from '../assets/data.json'
+<script setup>
+import json from '@/assets/data.json'
 
 const props = defineProps({
   title: {
@@ -62,8 +63,6 @@ const data = computed(() => {
 })
 
 const { addToCart } = useCart()
-
-// const data = json.filter(e => e.type == props.type)
 </script>
 
 <style lang="scss" scoped>

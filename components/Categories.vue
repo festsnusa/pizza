@@ -1,8 +1,8 @@
 <template>
   <div class="container" id="actions">
     <div class="cards">
-      <a class="card" v-for="item in arr" :href="`#${item.id}`">
-        <img :src="item.src">
+      <a class="card" v-for="(item, i) in arr" :key="`card__${i}`" :href="`#${item.id}`">
+        <img :src="images[item.src]">
         <span>{{ item.title }}</span>
       </a>
     </div>
@@ -10,17 +10,24 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
+import { filename } from 'pathe/utils';
+
 const arr = [
-  { "title": "Акции", "src": "_nuxt/assets/images/categories/fire.svg", "id": "actions" },
-  { "title": "Пицца", "src": "_nuxt/assets/images/categories/pizza.svg", "id": "pizza" },
-  { "title": "Суши", "src": "_nuxt/assets/images/categories/sushi.svg", "id": "sushi" },
-  { "title": "Напитки", "src": "_nuxt/assets/images/categories/drink.svg", "id": "drinks" },
-  { "title": "Закуски", "src": "_nuxt/assets/images/categories/snacks.svg", "id": "snacks" },
-  { "title": "Комбо", "src": "_nuxt/assets/images/categories/combo.svg", "id": "combo" },
-  { "title": "Десерты", "src": "_nuxt/assets/images/categories/desserts.svg", "id": "desserts" },
-  { "title": "Соусы", "src": "_nuxt/assets/images/categories/sauces.svg", "id": "sauces" },
+  { "title": "Акции", "src": "fire", "id": "actions" },
+  { "title": "Пицца", "src": "pizza", "id": "pizza" },
+  { "title": "Суши", "src": "sushi", "id": "sushi" },
+  { "title": "Напитки", "src": "drink", "id": "drinks" },
+  { "title": "Закуски", "src": "snacks", "id": "snacks" },
+  { "title": "Комбо", "src": "combo", "id": "combo" },
+  { "title": "Десерты", "src": "desserts", "id": "desserts" },
+  { "title": "Соусы", "src": "sauces", "id": "sauces" },
 ]
+
+const glob = import.meta.glob('~/assets/images/categories/*.svg', { eager: true });
+const images = Object.fromEntries(
+  Object.entries(glob).map(([key, value]) => [filename(key), value.default])
+);
 </script>
 
 <style lang="scss" scoped>

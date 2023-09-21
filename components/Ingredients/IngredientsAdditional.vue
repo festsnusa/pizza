@@ -3,7 +3,7 @@
     <li v-for="(item, i) in items" :key="`additional__${i}`" @click="toggleChosen(item)" :class="{ active: item.chosen }">
       <div class="top">
         <img class="done" src="../../assets/images/done.svg" alt="done" v-show="item.chosen">
-        <img class="poster" :src="`/_nuxt/assets/images/ingredients/${item.img}`" alt="item.title">
+        <img class="poster" :src="images[item.img]" alt="item.title">
       </div>
       <div class="bottom">
         <span class="bottom__title">{{ item.title }}</span>
@@ -15,11 +15,18 @@
 </template>
 
 <script setup lang="ts">
+import { filename } from 'pathe/utils'
+
+const glob = import.meta.glob('~/assets/images/ingredients/*.png', { eager: true })
+const images = Object.fromEntries(
+  Object.entries(glob).map(([key, value]) => [filename(key), value.default])
+)
+
 const items = ref([
-  { "title": "Моцарелла", "img": "mozarella.png", "chosen": false },
-  { "title": "Шампиньоны", "img": "champignon.png", "chosen": false },
-  { "title": "Красный лук", "img": "onion.png", "chosen": false },
-  { "title": "Сладкий перец", "img": "pepper.png", "chosen": false },
+  { "title": "Моцарелла", "img": "mozarella", "chosen": false },
+  { "title": "Шампиньоны", "img": "champignon", "chosen": false },
+  { "title": "Красный лук", "img": "onion", "chosen": false },
+  { "title": "Сладкий перец", "img": "pepper", "chosen": false },
 ])
 
 const toggleChosen = (item) => {

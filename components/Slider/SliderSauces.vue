@@ -3,7 +3,7 @@
     <h1>Соусы</h1>
     <swiper-container navigation="true" :slides-per-view="4" :space-between="50">
       <swiper-slide class="slider" v-for="(sauce, i) in sauces" :key="`sauce__${i}`">
-        <img :src="`/_nuxt/assets/images/sauces/${sauce.img}`" :alt="sauce.title">
+        <img :src="images[sauce.img]" :alt="sauce.title">
         <p>{{ sauce.title }}</p>
         <Button text="39 ₽" />
       </swiper-slide>
@@ -13,17 +13,24 @@
 
 <script setup lang="ts">
 import { register } from "swiper/element/bundle";
+
+import { filename } from 'pathe/utils'
+
+const glob = import.meta.glob('~/assets/images/sauces/*.png', { eager: true })
+const images = Object.fromEntries(
+  Object.entries(glob).map(([key, value]) => [filename(key), value.default])
+)
 register();
 
 const sauces = [
-  { "title": "Сырный соус", "img": "1.png" },
-  { "title": "Барбекю", "img": "2.png" },
-  { "title": "Ранч", "img": "3.png" },
-  { "title": "Сгущенка", "img": "4.png" },
-  { "title": "Ранч", "img": "3.png" },
-  { "title": "Барбекю", "img": "2.png" },
-  { "title": "Сгущенка", "img": "4.png" },
-  { "title": "Сырный соус", "img": "1.png" },
+  { "title": "Сырный соус", "img": "1" },
+  { "title": "Барбекю", "img": "2" },
+  { "title": "Ранч", "img": "3" },
+  { "title": "Сгущенка", "img": "4" },
+  { "title": "Ранч", "img": "3" },
+  { "title": "Барбекю", "img": "2" },
+  { "title": "Сгущенка", "img": "4" },
+  { "title": "Сырный соус", "img": "1" },
 ]
 </script>
 

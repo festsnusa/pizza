@@ -14,7 +14,7 @@
     <div class="second">
       <h2>Куда пицца</h2>
       <ul>
-        <NuxtLink v-for="(item, i) in getShortList(0, 3)" :to="item.link">
+        <NuxtLink v-for="(item, i) in getShortList(0, 3)" :key="`item__${i}`" :to="item.link">
           <li>{{ item.title }}</li>
         </NuxtLink>
 
@@ -33,7 +33,7 @@
       <ul>
         <NuxtLink v-for="(contact, i) in contacts" :key="`contact__${i}`" :to="contact.link" target="_blank">
           <li>
-            <img :src="`/_nuxt/assets/images/${contact.title}.svg`" :alt="contact.title">
+            <img :src="images[contact.title]" :alt="contact.title">
             <span>{{ contact.span }}</span>
           </li>
         </NuxtLink>
@@ -42,7 +42,14 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
+import { filename } from 'pathe/utils'
+
+const glob = import.meta.glob('~/assets/images/*.svg', { eager: true })
+const images = Object.fromEntries(
+  Object.entries(glob).map(([key, value]) => [filename(key), value.default])
+)
+
 const links = [
   {
     "title": "О компании", "link": "about"

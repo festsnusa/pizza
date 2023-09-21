@@ -3,10 +3,10 @@
     {{ currentCart }}
     <div class="sidebar__header">
       <h1 class="sidebar__title">Ваш заказ</h1>
-      <img src="../../assets/images/icon-close.png" alt="close" @click="toggleCartSidebar(false)">
+      <img src="@/assets/images/icon-close.png" alt="close" @click="toggleCartSidebar(false)">
     </div>
     <section class="sidebar__content">
-      <div class="card" v-for="(cart, i) in currentCart">
+      <div class="card" v-for="(cart, i) in currentCart" :key="`cart__${i}`">
         <div class="card__left">
           <img :src="`_nuxt/assets/images/${cart.item.type}/${cart.item.img}`" :alt="cart.item.title">
         </div>
@@ -29,7 +29,6 @@
         <Button text="Оформить заказ" />
       </NuxtLink>
     </div>
-    <!-- {{ currentCart }} -->
   </div>
 </template>
 
