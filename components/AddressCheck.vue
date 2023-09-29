@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-const validateAddress = value => {
+const validateAddress = (value: unknown) => {
   if (!value) {
     return "Заполните адрес"
   }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const time = ref("00:00:00")
-const total = ref(0)
+const time = ref<string>("00:00:00")
+const total = ref<number>(0)
 
 const { toggleModal } = useAuth();
 </script>

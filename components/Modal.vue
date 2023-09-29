@@ -7,11 +7,11 @@
 </template>
 
 <script setup lang="ts">
-const isPhoneFilled = ref(false)
+const isPhoneFilled = ref<boolean>(false)
 
 const { toggleModal } = useAuth();
 
-const togglePhoneFilled = () => {
+const togglePhoneFilled = (): void => {
   isPhoneFilled.value = true
 }
 </script>

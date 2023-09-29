@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-const isGrams = ref(true)
-const total = ref(0)
-const grams = ref(0)
+const isGrams = ref<boolean>(true)
+const total = ref<number>(0)
+const grams = ref<number>(0)
 </script>
 
 <style lang="scss" scoped>

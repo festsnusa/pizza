@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-const onSubmit = (e) => {
+const onSubmit = () => {
 }
 
 const props = defineProps({
@@ -21,7 +21,7 @@ const props = defineProps({
   }
 })
 
-const currentTotal = ref(props.total)
+const currentTotal = ref<number>(props.total)
 </script>
 
 <style lang="scss" scoped>

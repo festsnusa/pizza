@@ -13,18 +13,22 @@
 </template>
 
 <script setup lang="ts">
-const timer = ref(0)
+const timer = ref<number>(0)
 const { phoneNumber } = usePhoneNumber()
-const verifyCode = new Array(4)
+// const verifyCode = new Array(4)
 
-const interval = setInterval(() => {
+const interval = setInterval((): void => {
   if (timer.value !== 0) {
     timer.value--
   }
 }, 1000)
 
-const resendSMS = () => {
+const resendSMS = (): void => {
   timer.value = 10
+}
+
+const onSubmit = (): void => {
+
 }
 </script>
 

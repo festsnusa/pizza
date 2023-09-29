@@ -10,7 +10,13 @@
 </template>
 
 <script setup lang="ts">
-const items = [
+
+interface ItemType {
+  title: string;
+  id: string;
+}
+
+const items: ItemType[] = [
   { "title": "Акции", "id": "actions" },
   { "title": "Пицца", "id": "pizza" },
   { "title": "Суши", "id": "sushi" },

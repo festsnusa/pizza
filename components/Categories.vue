@@ -10,10 +10,16 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { filename } from 'pathe/utils';
 
-const arr = [
+interface ItemType {
+  title: string;
+  src: string;
+  id: string;
+}
+
+const arr: ItemType[] = [
   { "title": "Акции", "src": "fire", "id": "actions" },
   { "title": "Пицца", "src": "pizza", "id": "pizza" },
   { "title": "Суши", "src": "sushi", "id": "sushi" },

@@ -28,7 +28,7 @@
 
 
     <div class="pizzas">
-      <img :src="`@/assets/images/order/pizza-${i}.png`" :alt="`pizza-${i}`" v-for="i in 3">
+      <img :src="`@/assets/images/order/pizza-${i}.png`" :alt="`pizza-${i}`" v-for="i in 3" :key="`pizza__${i}`">
     </div>
     <button>
       Повторить заказ
@@ -37,12 +37,12 @@
 </template>
 
 <script setup lang="ts">
-const order = ref('130312')
-const total = ref(0)
-const date = ref(new Date().toLocaleDateString())
-const status = ref('Обрабатывается')
-const paymentType = ref('Картой')
-const address = ref('ул. Львовская 48/2, офис 301, 2 этаж, домофон 4801#')
+const order = ref<string>('130312')
+const total = ref<number>(0)
+const date = ref<string>(new Date().toLocaleDateString())
+const status = ref<string>('Обрабатывается')
+const paymentType = ref<string>('Картой')
+const address = ref<string>('ул. Львовская 48/2, офис 301, 2 этаж, домофон 4801#')
 </script>
 
 <style lang="scss" scoped>

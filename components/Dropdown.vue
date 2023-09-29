@@ -19,7 +19,12 @@
 <script setup lang="ts">
 import { DownOutlined } from '@ant-design/icons-vue'
 
-const options = [
+interface ItemType {
+  title: string;
+  link: string;
+}
+
+const options: ItemType[] = [
   { "title": "Акции", "link": "actions" },
   { "title": "О компании", "link": "about" },
   { "title": "Пользовательское соглашение", "link": "terms-of-use" },

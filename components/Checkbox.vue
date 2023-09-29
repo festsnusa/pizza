@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 
-const checkedList = ref(['Apple', 'Orange'])
+const checkedList = ref<string[]>(['Apple', 'Orange'])
 const props = defineProps({
   options: {
     type: Array,

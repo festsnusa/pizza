@@ -6,7 +6,7 @@
   </ul>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { filename } from 'pathe/utils'
 
 const glob = import.meta.glob('~/assets/images/promos/*.png', { eager: true })
@@ -14,7 +14,7 @@ const images = Object.fromEntries(
   Object.entries(glob).map(([key, value]) => [filename(key), value.default])
 )
 
-const imagesArr = ["promo-1", "promo-2", "promo-1", "promo-2"]
+const imagesArr: string[] = ["promo-1", "promo-2", "promo-1", "promo-2"]
 </script>
 
 <style lang="scss" scoped>

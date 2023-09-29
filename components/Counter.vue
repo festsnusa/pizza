@@ -20,7 +20,7 @@ const props = defineProps({
 
 const emit = defineEmits(["changeAmount"])
 
-const changeAmount = (operation) => {
+const changeAmount = (operation: string): void => {
   emit("changeAmount", props.amount, operation, props.index)
 }
 </script>

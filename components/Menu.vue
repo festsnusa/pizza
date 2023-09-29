@@ -51,10 +51,10 @@ const props = defineProps({
 })
 
 const data = computed(() => {
-  if (props.type == 'pizza') {
+  if (props.type === 'pizza') {
     const { pizzaData } = useData()
     return pizzaData.value
-  } else if (props.type == 'sushi') {
+  } else if (props.type === 'sushi') {
     const { sushiData } = useData()
     return sushiData.value
   } else {

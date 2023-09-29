@@ -57,14 +57,14 @@ const props = defineProps({
 const { addToCart } = useCart()
 const { toggleItem } = useItem()
 
-const item = json.filter(e => e.id == props.id)[0]
+const item = json.filter(e => e.id.toString() === props.id)[0]
 const total = ref(item.price)
 
-const imgSrc = computed(() => {
+const imgSrc = computed((): string => {
   return `/_nuxt/assets/images/${item.type}/${item.img}`
 })
 
-const changeTotal = (itemsLength) => {
+const changeTotal = (itemsLength: number): void => {
   if (itemsLength === 0) {
     total.value = item.price
     return
@@ -72,12 +72,12 @@ const changeTotal = (itemsLength) => {
   total.value = item.price + (59 * itemsLength)
 }
 
-const confirm = () => {
+const confirm = (): void => {
   addToCart(item, total.value)
   toggleModal()
 }
 
-const toggleModal = () => {
+const toggleModal = (): void => {
   toggleItem(false)
 }
 </script>

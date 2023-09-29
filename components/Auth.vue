@@ -4,11 +4,12 @@ import { Form, Field, ErrorMessage } from 'vee-validate';
 const { setPhoneNumber } = usePhoneNumber()
 const phoneFilled = ref(false)
 
-const onSubmit = values => {
+const onSubmit = (values: any) => {
   setPhoneNumber(values['tel'])
   phoneFilled.value = true
 }
-const validateEmail = value => {
+
+const validateEmail = (value: any) => {
   if (!value) {
     return 'Заполните номер телефона';
   }

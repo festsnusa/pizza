@@ -2,14 +2,19 @@
   <Header>
     <slot>
       <ul>
-        <li v-for="item in arr" :key="index">{{ item.title }}</li>
+        <li v-for="(item, i) in arr" :key="`short_header__${i}`">{{ item.title }}</li>
       </ul>
     </slot>
   </Header>
 </template>
 
-<script setup>
-const arr = [
+<script setup lang="ts">
+interface ItemType {
+  title: string;
+  page: string;
+}
+
+const arr: ItemType[] = [
   { "title": "Акции", "page": "actions" },
   { "title": "Пицца", "page": "pizza" },
   { "title": "Суши", "page": "sushi" },
